@@ -107,3 +107,21 @@ app.post('/api/MiniProDb/constructionDetails/CarpenterAccountDetails/postData',m
       response.json("Added Carpenter Fee Successfully!");
   });
 });
+
+// Authentication
+app.get('/api/MiniProDb/Authentication/getData',(request,response)=>{
+  database.collection("Authentication").find({}).toArray((error,result)=>{
+      response.send(result);
+  });
+});
+
+// app.post('/api/MiniProDb/Authentication/postData',multer().none(),(request,response)=>{
+//   adminData=request.body;
+//   database.collection("Authentication").count({},function(error,numOfDocs){
+//       database.collection("Authentication").insertOne({
+//           id:(numOfDocs+1).toString(),
+//           adminData
+//     });
+//       response.json("Login Successfully!");
+//   });
+// });
