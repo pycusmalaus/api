@@ -107,6 +107,22 @@ app.post('/api/MiniProDb/constructionDetails/CarpenterAccountDetails/postData',m
       response.json("Added Carpenter Fee Successfully!");
   });
 });
+// Painter Details
+app.get('/api/MiniProDb/constructionDetails/painterAccountDetails/getData',(request,response)=>{
+  database.collection("painterAccountDetails").find({}).toArray((error,result)=>{
+      response.send(result);
+  });
+});
+app.post('/api/MiniProDb/constructionDetails/painterAccountDetails/postData',multer().none(),(request,response)=>{
+  paidData=request.body;
+  database.collection("painterAccountDetails").count({},function(error,numOfDocs){
+      database.collection("painterAccountDetails").insertOne({
+          id:(numOfDocs+1).toString(),
+          paidData
+    });
+      response.json("Added Carpenter Fee Successfully!");
+  });
+});
 
 // Authentication
 app.get('/api/MiniProDb/Authentication/getData',(request,response)=>{
