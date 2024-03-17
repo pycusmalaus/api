@@ -120,7 +120,7 @@ app.post('/api/MiniProDb/constructionDetails/painterAccountDetails/postData',mul
           id:(numOfDocs+1).toString(),
           paidData
     });
-      response.json("Added Carpenter Fee Successfully!");
+      response.json("Added Painter Fee Successfully!");
   });
 });
 
