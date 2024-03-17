@@ -45,11 +45,11 @@ app.post('/api/MiniProDb/postData',multer().none(),(request,response)=>{
 });
 
   app.post('/api/MiniProDb/constructionDetails/postData',multer().none(),(request,response)=>{
-    data1=request.body;
+    paidData=request.body;
     database.collection("constructionDetails").count({},function(error,numOfDocs){
         database.collection("constructionDetails").insertOne({
             id:(numOfDocs+1).toString(),
-            data1
+            paidData
       });
         response.json("Added Construction Fee Successfully!");
     });
@@ -62,11 +62,11 @@ app.post('/api/MiniProDb/postData',multer().none(),(request,response)=>{
     });
 });
   app.post('/api/MiniProDb/constructionDetails/labourAccountDetails/postData',multer().none(),(request,response)=>{
-    labourData=request.body;
+    paidData=request.body;
     database.collection("LabourAccountDetails").count({},function(error,numOfDocs){
         database.collection("LabourAccountDetails").insertOne({
             id:(numOfDocs+1).toString(),
-            labourData
+            paidData
       });
         response.json("Added Labour Fee Successfully!");
     });
@@ -80,11 +80,11 @@ app.get('/api/MiniProDb/constructionDetails/ElectricianAccountDetails/getData',(
     });
 });
   app.post('/api/MiniProDb/constructionDetails/ElectricianAccountDetails/postData',multer().none(),(request,response)=>{
-    electricianData=request.body;
+    paidData=request.body;
     database.collection("ElectricianAccountDetails").count({},function(error,numOfDocs){
         database.collection("ElectricianAccountDetails").insertOne({
             id:(numOfDocs+1).toString(),
-            electricianData
+            paidData
       });
         response.json("Added Electrician Fee Successfully!");
     });
@@ -98,11 +98,11 @@ app.get('/api/MiniProDb/constructionDetails/CarpenterAccountDetails/getData',(re
   });
 });
 app.post('/api/MiniProDb/constructionDetails/CarpenterAccountDetails/postData',multer().none(),(request,response)=>{
-  carpenterData=request.body;
+  paidData=request.body;
   database.collection("CarpenterAccountDetails").count({},function(error,numOfDocs){
       database.collection("CarpenterAccountDetails").insertOne({
           id:(numOfDocs+1).toString(),
-          carpenterData
+          paidData
     });
       response.json("Added Carpenter Fee Successfully!");
   });
