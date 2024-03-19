@@ -143,3 +143,20 @@ app.post('/api/MiniProDb/constructionDetails/painterAccountDetails/postData',mul
       response.json("Added Painter Fee Successfully!");
   });
 });
+
+// Tiles (labour) Details
+app.get('/api/MiniProDb/constructionDetails/TilesLabourAccountDetails/getData',(request,response)=>{
+  database.collection("TilesLabourAccountDetails").find({}).toArray((error,result)=>{
+      response.send(result);
+  });
+});
+app.post('/api/MiniProDb/constructionDetails/TilesLabourAccountDetails/postData',multer().none(),(request,response)=>{
+  paidData=request.body;
+  database.collection("TilesLabourAccountDetails").count({},function(error,numOfDocs){
+      database.collection("TilesLabourAccountDetails").insertOne({
+          id:(numOfDocs+1).toString(),
+          paidData
+    });
+      response.json("Added Tiles (Labour) Fee Successfully!");
+  });
+});
